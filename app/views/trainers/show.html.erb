@@ -1,3 +1,18 @@
 <h3>Trainer</h3>
 <p>Name: <%= @trainer.name if @trainer.name %></p>
 <p>Email: <%= @trainer.email if @trainer.email %></p>
+<br>
+<p>List of Pokemon:</p>
+<% @trainer.pokemons.each do |p| %>
+  <% if (@trainer.id != current_trainer.id) && p.health <= 0 %>
+    <% next %> <!-- Hides 0 health Pokemon from other players for Pokemon healing -->
+  <% end %>
+  <p><%= p.name %> -- Level <%= p.level %> -- Health <%= p.health %>.</p>
+  <%= button_to "Damage!", damage_path(id: p), :class => "button medium", :method => :post %>
+  <% if @trainer.id == current_trainer.id %>
+    <%= button_to "Heal!", heal_path(id: p), :class => "button medium", :method => :patch %> <!-- Shows Heal button only for current trainer's Pokemon -->
+  <% end %>
+<% end %>
+<% if @trainer.id == current_trainer.id %>
+  <%= button_to "Create New Pokemon!", new_pokemon_path, :class => "button medium", :method => :get %>
+<% end %>
