@@ -1,5 +1,0 @@
-<h3>Which Pokemon will you use to attack <%= @victim.name %>?</h3>
-<%= form_for :pokemon, :url => {:action => :level_up} do |f| %>
-  <%= f.collection_select :name, Pokemon.where(trainer_id: current_trainer.id), :name, :name %>
-  <%= f.button :submit %>
-<% end %>

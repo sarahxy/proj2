@@ -1,7 +1,16 @@
-<h3>Welcome to PokePortal</h3>
-<p><%= link_to 'Trainers:', trainers_path %> <%= Trainer.count %> registered</p>
+<br>
+<h2>Welcome to Railstory!</h2>
+<p><%= Player.count %> Players registered: <%= link_to 'View Player Accounts', players_path %></p>
 
-<% if @pokemon and current_trainer %>
-  <p> A wild <%= @pokemon.name %> has appeared!</p>
-  <%= button_to "Throw a Pokeball!", capture_path(id: @pokemon), :class => "button medium", :method => :patch %>
+<br>
+<h4>Game Guide:</h4>
+<h5>~ When one Character attacks another:</h5>
+<h6>* The victim will lose 10 health points!</h6>
+<h6>* The attacking Character will gain 10 experience points!</h6>
+<h6>* If the attacking Character reaches 100 EXP, it will level up!</h6>
+
+<!-- <% if @character and current_player %>
+  <p> A wild <%= @character.name %> has appeared!</p>
+  <%= button_to "Throw a Pokeball!", capture_path(id: @character), :class => "button medium", :method => :patch %>
 <% end %>
+-->

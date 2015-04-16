@@ -1,0 +1,26 @@
+<h3>Player</h3>
+<p>Name: <%= @player.name if @player.name %></p>
+<p>Email: <%= @player.email if @player.email %></p>
+<br>
+<h4><%= @player.name %> controls the following Characters:</h4>
+<br>
+<% @player.characters.each do |p| %>
+  <% if (@player.id != current_player.id) && p.health <= 0 %>
+    <% next %> <!-- Hides 0 health Character from other players for Character healing -->
+  <% end %>
+  <h5><%= p.name %></h5>
+  <br>
+  <p>LEVEL: <%= p.level %></p>
+  <p>HEALTH: <%= p.health %></p>
+  <p>EXPERIENCE POINTS: <%= p.experience %></p>
+  <p>STRENGTH POINTS: <%= p.strength %></p>
+  <p>MAGIC POINTS: <%= p.magic %></p>
+  <%= button_to "Damage!", damage_path(id: p), :class => "button medium", :method => :post %>
+  <% if @player.id == current_player.id %>
+    <%= button_to "Heal!", heal_path(id: p), :class => "button medium", :method => :patch %> <!-- Shows Heal button only for current player's Character -->
+  <% end %>
+  <br>
+<% end %>
+<% if @player.id == current_player.id %>
+  <%= button_to "Create New Character!", new_character_path, :class => "button medium", :method => :get %>
+<% end %>
