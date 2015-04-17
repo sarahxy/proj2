@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Make Character
-%w(Knight Warrior Archer Magician Samurai).each do |name|
-  Character.create name: name, level: rand(1..10), health: 100, experience: 10, strength: 10, magic: 10
+%w(Knight Warrior Archer Magician Samurai King Queen).each do |name|
+  Character.create name: name, level: 1, health: 100, experience: rand(10..30), strength: rand(10..30), magic: rand(10..30), player_id: rand(1..4)
 end
 
 # Make other Players
-%w(Gandalf Legolas Frodo Gollum).each do |name|
+%w(Gandalf Legolas Frodo Gollum Bilbo Smaug).each do |name|
   Player.create name: name, email: name+"@railstory.com", password: 'password'
 end
