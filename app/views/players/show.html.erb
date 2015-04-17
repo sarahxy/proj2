@@ -1,14 +1,25 @@
-<h3>Player</h3>
-<p>Name: <%= @player.name if @player.name %></p>
+<br>
+<%= link_to '<-- Back to All Players', players_path %>
+<br>
+<br>
+
+<h2>Player</h2>
+<p>Name: <%= @player.name if @player.name %><% if @player.id == current_player.id %><%= " (you!)" %><% end %></p>
 <p>Email: <%= @player.email if @player.email %></p>
 <br>
-<h4><%= @player.name %> controls the following Characters:</h4>
+
+<h3><% if @player.id == current_player.id %>
+  <%= "You control the following Characters:" %>
+<% else %>
+  <%= @player.name + " controls the following Characters:" %>
+<% end %></h3>
+
 <br>
 <% @player.characters.each do |p| %>
   <% if (@player.id != current_player.id) && p.health <= 0 %>
     <% next %> <!-- Hides 0 health Character from other players for Character healing -->
   <% end %>
-  <h5><%= p.name %></h5>
+  <h4><%= p.name %></h4>
   <br>
   <p>LEVEL: <%= p.level %></p>
   <p>HEALTH: <%= p.health %></p>

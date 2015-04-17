@@ -1,2 +1,5 @@
-<td><%= link_to player.name, player %></td>
+<td><%= link_to player.name, player %>
+<% if player.id == current_player.id %>
+  <%= link_to " (you!)", player %>
+<% end %></td>
 <td><%= link_to player.email, player %></td>
