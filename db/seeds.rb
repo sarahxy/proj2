@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Make Character
-%w(Squirtle Charmander Bulbasaur Pikachu).each do |name|
-  Character.create name: name, level: rand(1..20), health: 100
+%w(Knight Warrior Archer Magician Samurai).each do |name|
+  Character.create name: name, level: rand(1..10), health: 100, experience: 10, strength: 10, magic: 10
 end
 
-# Make other trainers
-%w(Ash Gary Misty Brock).each do |name|
-  Trainer.create name: name, email: name+"@railstory.com", password: 'password'
+# Make other Players
+%w(Gandalf Legolas Frodo Gollum).each do |name|
+  Player.create name: name, email: name+"@railstory.com", password: 'password'
 end
