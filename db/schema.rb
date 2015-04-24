@@ -11,37 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417004338) do
+ActiveRecord::Schema.define(version: 20150424003350) do
 
-  create_table "characters", force: true do |t|
+  create_table "beasts", force: true do |t|
     t.string   "name"
-    t.integer  "level"
-    t.integer  "player_id"
+    t.string   "type"
+    t.string   "attribute"
+    t.integer  "counters"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "health"
-    t.integer  "strength"
-    t.integer  "magic"
-    t.integer  "experience"
   end
-
-  create_table "players", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-  end
-
-  add_index "players", ["email"], name: "index_players_on_email", unique: true
-  add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
 
 end
