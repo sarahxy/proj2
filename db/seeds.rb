@@ -12,11 +12,11 @@
 end
 
 # Make Character
-%w(Knight Warrior Archer Magician Samurai King Queen Fairy Orc Elf).each do |name|
+%w(Knight Warrior Archer Magician Samurai King Queen Fairy Orc Elf Mage Bandit Swordsman).each do |name|
   Character.create name: name, level: 1, health: 100, experience: rand(10...30), strength: rand(10...30), magic: rand(10...30), player_id: rand(1...7)
 end
 
 #Make Beast
 %w((Dragon, fire) (Octopus, water) (Unicorn, wind) (Bear, earth)).each do |name, type|
-	Beast.create name: name, type: type, attribute: [light, dark].sample, counters: rand(1...15) 
+	Beast.create name: name, type: type, style: ['light', 'dark'].sample, counters: rand(1...15)
 end
