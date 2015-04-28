@@ -12,6 +12,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'simple_form'
 gem 'pry-rails', :group => :development
+gem 'seed_dump' # our special gem
 
 group :development do
   gem 'sqlite3'
