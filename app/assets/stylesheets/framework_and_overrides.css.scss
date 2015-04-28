@@ -1,13 +1,20 @@
 // import the CSS framework
 @import "foundation";
 
+.top-bar {
+    background-color: #FF9500;
+}
+
 // override for the 'Home' navigation link
 .top-bar .name {
-  font-size: rem-calc(13);
+  font-size: rem-calc(16);
+  background-color: #FF6600;
+  color: #EB8831;
   line-height: 45px; }
 .top-bar .name a {
   font-weight: normal;
   color: white;
+  background-color: #FF6600;
   padding: 0 15px; }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -40,7 +47,7 @@
 // to make views framework-neutral
 main {
   @include twelve-columns;
-  background-color: #eee;
+  background-color: #FFECD1;
   }
 section {
   @extend .row;
