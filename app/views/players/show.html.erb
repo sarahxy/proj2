@@ -26,6 +26,14 @@
   <p>EXPERIENCE POINTS: <%= p.experience %></p>
   <p>STRENGTH POINTS: <%= p.strength %></p>
   <p>MAGIC POINTS: <%= p.magic %></p>
+  <br>
+  <% p.beasts.each do |b| %>
+    <p>BEAST: <%= b.name %> (owned by <%= p.name %>)</p>
+    <p>ELEMENT: <%= b.element %></p>
+    <p>STYLE: <%= b.element %></p>
+    <p>COUNTER POINTS: <%= b.counters %></p>
+  <% end %>
+
   <%= button_to "Damage!", damage_path(id: p), :class => "button medium", :method => :post %>
   <% if @player.id == current_player.id %>
     <%= button_to "Heal!", heal_path(id: p), :class => "button medium", :method => :patch %> <!-- Shows Heal button only for current player's Character -->

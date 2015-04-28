@@ -46,11 +46,12 @@ ActiveRecord::Schema.define(version: 20150424003350) do
 
   create_table "beasts", force: true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "element"
     t.string   "style"
     t.integer  "counters"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "character_id"
   end
 
 end

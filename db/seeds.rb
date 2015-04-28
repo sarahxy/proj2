@@ -7,16 +7,28 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Make other Players
-%w(Gandalf Legolas Frodo Gollum Bilbo Smaug Saruman).each do |name|
+%w(Gandalf Legolas Frodo Gollum Bilbo Smaug Saruman Boromir Aragorn).each do |name|
   Player.create name: name, email: name+"@railstory.com", password: 'password'
 end
 
 # Make Character
-%w(Knight Warrior Archer Magician Samurai King Queen Fairy Orc Elf Mage Bandit Swordsman).each do |name|
-  Character.create name: name, level: 1, health: 100, experience: rand(10...30), strength: rand(10...30), magic: rand(10...30), player_id: rand(1...7)
+%w(Knight Warrior Archer Magician Samurai King Queen Fairy Orc Elf Mage Bandit Swordsman Demon Explorer Phantom Pirate).each do |name|
+  Character.create name: name, level: 1, health: 100, experience: rand(10...31), strength: rand(10...31), magic: rand(10...31), player_id: rand(1...10)
 end
 
-#Make Beast
-%w((Dragon, fire) (Octopus, water) (Unicorn, wind) (Bear, earth)).each do |name, type|
-	Beast.create name: name, type: type, style: ['light', 'dark'].sample, counters: rand(1...15)
+# Make Beasts
+%w(Dragon).each do |name|
+  Beast.create name: name, element: 'Fire', style: ['Light', 'Dark'].sample, counters: rand(1...16), character_id: rand(1...18)
+end
+
+%w(Octopus).each do |name|
+  Beast.create name: name, element: 'Water', style: ['Light', 'Dark'].sample, counters: rand(1...16), character_id: rand(1...18)
+end
+
+%w(Unicorn).each do |name|
+  Beast.create name: name, element: 'Wind', style: ['Light', 'Dark'].sample, counters: rand(1...16), character_id: rand(1...18)
+end
+
+%w(Bear).each do |name|
+  Beast.create name: name, element: 'Earth', style: ['Light', 'Dark'].sample, counters: rand(1...16), character_id: rand(1...18)
 end
