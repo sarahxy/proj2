@@ -1,9 +1,10 @@
-<h3>Which Character will you use to attack <%= @victim.name %>?</h3>
+<h3>Which Character will you use to attack <%= $victim.name %>?</h3>
 <br>
-<h5>* <%= @victim.name %> will lose 10 health points!</h5>
+<h5>* <%= $victim.name %> will lose 10 health points!</h5>
 <h5>* Your attacking Character will gain 10 experience points!</h5>
 <h5>* If your Character reaches 100 EXP, it will level up!</h5>
 <%= form_for :character, :url => {:action => :level_up} do |f| %>
   <%= f.collection_select :name, Character.where(player_id: current_player.id), :name, :name %>
+  <%= f.select :element, ["Earth", "Wind", "Fire", "Water"] %>
   <%= f.button :submit %>
 <% end %>
