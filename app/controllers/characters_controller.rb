@@ -19,7 +19,7 @@ class CharactersController < ApplicationController
     # Generates the attacking character's damage multiplier (0.7 to 1.3)
     critical = Random.new
     critical_damage = critical.rand(0.7..1.3)
-  
+
     # Determines the attacking character's element multiplier
     element_multiplier = 1
     if ((attacker_element == "Water") and (victim_element == "Fire")) or

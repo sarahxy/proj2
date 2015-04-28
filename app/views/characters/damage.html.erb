@@ -1,10 +1,20 @@
 <h3>Which Character will you use to attack <%= $victim.name %>?</h3>
 <br>
-<h5>* <%= $victim.name %> will lose 10 health points!</h5>
-<h5>* Your attacking Character will gain 10 experience points!</h5>
-<h5>* If your Character reaches 100 EXP, it will level up!</h5>
+<h4>Battle rules:</h4>
+<h5>
+- The attacking Character picks one of their elements (Fire, Water, Wind, Earth) to use to attack the opponent.<br>
+- A random element of the opponent is used to defend against the attacker.<br>
+- The damage dealt is calculated by the formula BASE_DAMAGE * ELEMENT_MULTIPLIER * RANDOM_MULTIPLIER.<br>
+- If the attacker's element is the victim's element weakness, then damage is 2x! (element multiplier = 2)<br>
+- The random chance multiplier simulates stochastic battle conditions. It ranges between +/- 30% per attack, so an attack might do between 70% and 130% of its base damage.<br>
+- After the attack, the attacking Character will gain 10 experience points!<br>
+- If the attacking Character reaches 100 EXP, it will level up, and EXP will reset to 0.<br>
+</h5>
+<br>
 <%= form_for :character, :url => {:action => :level_up} do |f| %>
+  <h5>Your attacking character:</h5>
   <%= f.collection_select :name, Character.where(player_id: current_player.id), :name, :name %>
+  <h5>Your attacking element:</h5>
   <%= f.select :element, ["Earth", "Wind", "Fire", "Water"] %>
   <%= f.button :submit %>
 <% end %>

@@ -1,18 +1,39 @@
 <br>
 <h2>Welcome to Railstory!</h2>
 <p><%= Player.count %> Players registered: <%= link_to 'View Player Accounts', players_path %></p>
+<p>
+<h5>Demo user account:<br></h5>
+Username: frodo@railstory.com<br>
+Password: password<br>
+</p>
 
 <br>
 <h4>Game Guide:</h4>
-<h5>~ When one Character attacks another:</h5>
-<h6>* The victim will lose health points = 10 * element_multiplier * chance damge!</h6>
-<p style="text-indent: 5em;">element_multiplier = 2 if attacker's element is the victim's element's weakness</p>
-<p style="text-indent: 5em;">chance damage = some percent 0.7 to 1.3 </p>
-<h6>* The attacking Character will gain 10 experience points!</h6>
-<h6>* If the attacking Character reaches 100 EXP, it will level up!</h6>
-
-<!-- <% if @character and current_player %>
-  <p> A wild <%= @character.name %> has appeared!</p>
-  <%= button_to "Throw a Pokeball!", capture_path(id: @character), :class => "button medium", :method => :patch %>
-<% end %>
--->
+<br>
+<h5>Controller and player rules:</h5>
+<h6>
+- Characters have Level, Health, Experience Points, Strength Points, and Magic Points.<br>
+- A Player can have multiple Characters under their account, and Characters belong to a Player.<br>
+- Beasts are like pets that tag along with your Characters, and they belong to a Character.<br>
+- You also have the ability to Heal your own damaged Characters to get them battle-ready again!<br>
+</h6>
+<br>
+<h5>Element rules:</h5>
+<h6>
+- Every character has Fire, Water, Wind, and Earth energy, and these come into play at battle time.<br>
+- Water is strong against fire.<br>
+- Fire is strong against earth.<br>
+- Earth is strong against wind.<br>
+- Wind is strong against water.<br>
+</h6>
+<br>
+<h5>Battle rules:</h5>
+<h6>
+- The attacking Character picks one of their elements (Fire, Water, Wind, Earth) to use to attack the opponent.<br>
+- A random element of the opponent is used to defend against the attacker.<br>
+- The damage dealt is calculated by the formula BASE_DAMAGE * ELEMENT_MULTIPLIER * RANDOM_MULTIPLIER.<br>
+- If the attacker's element is the victim's element weakness, then damage is 2x! (element multiplier = 2)<br>
+- The random chance multiplier simulates stochastic battle conditions. It ranges between +/- 30% per attack, so an attack might do between 70% and 130% of its base damage.<br>
+- After the attack, the attacking Character will gain 10 experience points!<br>
+- If the attacking Character reaches 100 EXP, it will level up, and EXP will reset to 0.<br>
+</h6>
