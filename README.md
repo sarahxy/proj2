@@ -1,8 +1,8 @@
 # Welcome to Railstory!
 
 ## Title: Railstory
-## Team Members: Sarah Huang, Shawn Huang, Jonathan Sheu
-## Demo Link: railstory.herokuapp.com
+### Team Members: Sarah Huang, Shawn Huang, Jonathan Sheu
+### Demo Link: railstory.herokuapp.com
 
 ## Idea:
 * A role-playing game where players can create and battle characters with other users and build up character stats such as elemental energy, strength, and magic points.
@@ -32,6 +32,7 @@
 
 ## Requirements:
 * Our special gem was 'seed_dump', which helped us transfer custom characters created in Rails console to our seed file.
+
 
 
 ## Game Guide:
