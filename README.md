@@ -2,18 +2,21 @@
 
 ## Title: Railstory
 ### Team Members: Sarah Huang, Shawn Huang, Jonathan Sheu
-### Demo Link: railstory.herokuapp.com
+### Demo Link: [railstory.herokuapp.com](railstory.herokuapp.com)
 
 ## Idea:
 * A role-playing game where players can create and battle characters with other users and build up character stats such as elemental energy, strength, and magic points.
 
 ## Models and Description:
+
 ### Player:
 * has name, email, and many Characters
+
 ### Character:
 * has name, level, health, strength, magic level, and experience level
 * can have many Beasts
 * belongs to a Player
+
 ### Beast:
 * has name, element type, light/dark type, and counter points
 * belongs to a Character
